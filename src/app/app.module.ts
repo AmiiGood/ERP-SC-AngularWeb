@@ -4,18 +4,44 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { SidebarModule } from 'primeng/sidebar';
+import { EmpleadosComponent } from './features/empleados/empleados.component';
+import { MenuModule } from 'primeng/menu';
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { TableModule } from 'primeng/table';
+import { TagModule } from 'primeng/tag';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
+    EmpleadosComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SidebarModule,
+    MenuModule,
+    AvatarGroupModule,
+    AvatarModule,
+    ButtonModule,
+    ToastModule,
+    TableModule,
+    TagModule,
+    IconFieldModule,
+    InputIconModule,
+    InputTextModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

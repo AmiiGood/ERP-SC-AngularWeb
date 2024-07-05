@@ -1,1 +1,18 @@
-<p>main-layout works!</p>
+<div class="layout-wrapper">
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="assets/sweet-code-logo.png" alt="Sweet code">
+      </div>
+      <p-menu [model]="menuItems"></p-menu>
+    </aside>
+    <main class="main-content">
+      <header>
+        <h1>{{pageTitle}}</h1>
+        <div class="user-info">
+          <span>Robin Shebasky</span>
+          <p-avatar image="assets/user-avatar.jpg" shape="circle"></p-avatar>
+        </div>
+      </header>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
