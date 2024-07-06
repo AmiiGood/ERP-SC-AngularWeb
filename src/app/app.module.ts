@@ -17,12 +17,24 @@ import { TagModule } from 'primeng/tag';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
+import { ClientesComponent } from './features/clientes/clientes.component';
+import { ProductosComponent } from './features/productos/productos.component';
+import { VentasComponent } from './features/ventas/ventas.component';
+import { ComprasComponent } from './features/compras/compras.component';
+import { InventarioComponent } from './features/inventario/inventario.component';
+import { SucursalComponent } from './features/sucursal/sucursal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainLayoutComponent,
-    EmpleadosComponent
+    EmpleadosComponent,
+    ClientesComponent,
+    ProductosComponent,
+    VentasComponent,
+    ComprasComponent,
+    InventarioComponent,
+    SucursalComponent
   ],
   imports: [
     BrowserModule,

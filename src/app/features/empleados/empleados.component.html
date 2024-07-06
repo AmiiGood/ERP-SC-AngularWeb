@@ -34,26 +34,25 @@
   <div class="table-wrapper">
     <p-table
       #dt2
-      [value]="empleados"
+      [value]="(empleados$ | async) ?? []"
       [paginator]="true"
       [rows]="6"
       [showCurrentPageReport]="true"
       [tableStyle]="{ 'min-width': '50rem' }"
       currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} empleados"
+      [globalFilterFields]="['nombre', 'puesto', 'correo']"
     >
       <ng-template pTemplate="caption">
         <div class="flex">
-          <p-iconField iconPosition="left" class="ml-auto">
-            <p-inputIcon>
-              <i class="pi pi-search"></i>
-            </p-inputIcon>
+          <span class="p-input-icon-left ml-auto">
+            <i class="pi pi-search"></i>
             <input
               pInputText
               type="text"
               (input)="onGlobalFilter($event)"
-              placeholder="Search keyword"
+              placeholder="Buscar..."
             />
-          </p-iconField>
+          </span>
         </div>
       </ng-template>
       <ng-template pTemplate="header">
