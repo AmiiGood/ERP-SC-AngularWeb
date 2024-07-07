@@ -1,11 +1,14 @@
 <div class="layout-wrapper">
   <aside class="sidebar">
-    <div class="logo">
+    <div class="logo logo-container">
       <img src="../../../assets/A17669_Sweet code_2v.png" alt="Sweet code" />
     </div>
     <p-menu [model]="menuItems"></p-menu>
   </aside>
   <main class="main-content">
-    <router-outlet></router-outlet>
+    <app-header [pageTitle]="pageTitle"></app-header>
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
   </main>
 </div>

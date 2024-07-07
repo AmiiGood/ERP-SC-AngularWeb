@@ -14,12 +14,19 @@
 
 .logo {
   padding: 0 20px 30px;
-  border-bottom: 1px solid #444444;
+  margin-bottom: 20px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
   margin-bottom: 20px;
 }
 
 .logo img {
-  max-width: 100%;
+  max-width: 60%;
   height: auto;
 }
 
@@ -75,6 +82,12 @@
 
 .main-content {
   flex: 1;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
   background-color: #ffffff;
+}
+
+.content-area {
+  padding: 20px;
+  margin-top: 60px;
 }

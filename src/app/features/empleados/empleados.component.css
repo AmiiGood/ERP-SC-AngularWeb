@@ -1,18 +1,22 @@
 .empleados-wrapper {
-    padding: 20px;
-  }
-  
-  .actions {
-    margin-bottom: 20px;
-  }
-  
-  .actions p-button {
-    margin-right: 10px;
-  }
-  
-  .search-box {
-    float: right;
-    margin-bottom: 10px;
-  }
-  
-  /* Añade más estilos según sea necesario */
+  padding: 20px;
+}
+
+.actions {
+  margin-bottom: 75px;
+}
+
+.actions p-button {
+  margin-right: 10px;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-box {
+  margin-left: auto;
+}

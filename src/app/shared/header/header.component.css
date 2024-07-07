@@ -1,0 +1,39 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1rem; /* Añadir margen derecho para separar el texto del avatar */
+}
+
+.user-name {
+  font-weight: bold;
+  margin-bottom: 0.2rem; /* Margen inferior en lugar de margen derecho */
+}
+
+.user-email {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+:host ::ng-deep .p-avatar {
+  margin-left: 0.5rem; /* Cambia margen izquierdo por superior */
+}

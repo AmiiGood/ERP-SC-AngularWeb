@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +26,9 @@ import { VentasComponent } from './features/ventas/ventas.component';
 import { ComprasComponent } from './features/compras/compras.component';
 import { InventarioComponent } from './features/inventario/inventario.component';
 import { SucursalComponent } from './features/sucursal/sucursal.component';
+import { ToolbarModule } from 'primeng/toolbar';
+import { SharedModule } from './shared/shared.module';
+import { MessagesModule } from 'primeng/messages';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,7 @@ import { SucursalComponent } from './features/sucursal/sucursal.component';
     VentasComponent,
     ComprasComponent,
     InventarioComponent,
-    SucursalComponent
+    SucursalComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,12 +55,12 @@ import { SucursalComponent } from './features/sucursal/sucursal.component';
     TagModule,
     IconFieldModule,
     InputIconModule,
-    InputTextModule
+    InputTextModule,
+    ToolbarModule,
+    SharedModule,
+    MessagesModule
   ],
-  providers: [
-    provideClientHydration(),
-    provideAnimationsAsync()
-  ],
-  bootstrap: [AppComponent]
+  providers: [provideClientHydration(), provideAnimationsAsync()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -26,35 +26,35 @@
       label="Exportar"
       icon="pi pi-download"
       styleClass="p-button-info"
+      (click)="dt.exportCSV()"
     ></p-button>
   </div>
 
-  <h2>Administrar Empleados</h2>
+  <div class="header-row">
+    <h2>Administrar Empleados</h2>
+    <span class="p-input-icon-left search-box">
+      <i class="pi pi-search"></i>
+      <input
+        pInputText
+        type="text"
+        (input)="onGlobalFilter($event)"
+        placeholder="Buscar..."
+      />
+    </span>
+  </div>
 
   <div class="table-wrapper">
     <p-table
-      #dt2
+      #dt
       [value]="(empleados$ | async) ?? []"
       [paginator]="true"
-      [rows]="6"
+      [rows]="5"
       [showCurrentPageReport]="true"
       [tableStyle]="{ 'min-width': '50rem' }"
       currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} empleados"
       [globalFilterFields]="['nombre', 'puesto', 'correo']"
+      [rowsPerPageOptions]="[5, 10, 20]"
     >
-      <ng-template pTemplate="caption">
-        <div class="flex">
-          <span class="p-input-icon-left ml-auto">
-            <i class="pi pi-search"></i>
-            <input
-              pInputText
-              type="text"
-              (input)="onGlobalFilter($event)"
-              placeholder="Buscar..."
-            />
-          </span>
-        </div>
-      </ng-template>
       <ng-template pTemplate="header">
         <tr>
           <th style="width: 3rem">
@@ -83,8 +83,7 @@
             <p-tag
               [value]="empleado.estatus"
               [severity]="empleado.estatus === 'ACTIVO' ? 'success' : 'danger'"
-            >
-            </p-tag>
+            ></p-tag>
           </td>
           <td>{{ empleado.correo }}</td>
         </tr>

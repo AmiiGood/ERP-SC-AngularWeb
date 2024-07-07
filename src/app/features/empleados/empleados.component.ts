@@ -1,8 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 import { BehaviorSubject } from 'rxjs';
 import { Empleado } from '../../interfaces/empleado';
+import { Column } from '../../interfaces/column';
 
 @Component({
   selector: 'app-empleados',
@@ -10,9 +11,12 @@ import { Empleado } from '../../interfaces/empleado';
   styleUrls: ['./empleados.component.css'],
   providers: [MessageService],
 })
-export class EmpleadosComponent {
-  @ViewChild('dt2') dt2!: Table;
+export class EmpleadosComponent implements OnInit {
+  @ViewChild('dt') dt!: Table;
   empleados$ = new BehaviorSubject<Empleado[]>([]);
+
+  cols!: Column[];
+  exportColumns!: any[];
 
   constructor(private messageService: MessageService) {}
 
@@ -43,6 +47,20 @@ export class EmpleadosComponent {
         correo: 'juan.perez@example.com',
       },
     ]);
+
+    this.cols = [
+      { field: 'id', header: 'ID' },
+      { field: 'nombre', header: 'Nombre' },
+      { field: 'puesto', header: 'Puesto' },
+      { field: 'salario', header: 'Salario' },
+      { field: 'estatus', header: 'Estatus' },
+      { field: 'correo', header: 'Correo electrónico' },
+    ];
+
+    this.exportColumns = this.cols.map((col) => ({
+      title: col.header,
+      dataKey: col.field,
+    }));
   }
 
   showSuccessMessage() {
@@ -54,6 +72,6 @@ export class EmpleadosComponent {
   }
 
   onGlobalFilter(event: Event) {
-    this.dt2.filterGlobal((event.target as HTMLInputElement).value, 'contains');
+    this.dt.filterGlobal((event.target as HTMLInputElement).value, 'contains');
   }
 }
