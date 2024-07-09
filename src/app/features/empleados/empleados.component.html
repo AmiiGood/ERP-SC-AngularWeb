@@ -6,6 +6,7 @@
       label="Insertar"
       icon="pi pi-plus"
       styleClass="p-button-success"
+      (onClick)="showSuccessMessage()"
     ></p-button>
     <p-button
       label="Eliminar"
@@ -17,10 +18,19 @@
       icon="pi pi-pencil"
       styleClass="p-button-warning"
     ></p-button>
+    <input
+      #fileInput
+      type="file"
+      (change)="onFileSelected($event)"
+      style="display: none"
+      accept=".xlsx, .xls, .csv"
+    />
+
     <p-button
       label="Importar"
       icon="pi pi-upload"
       styleClass="p-button-help"
+      (onClick)="importarEmpleados()"
     ></p-button>
     <p-button
       label="Exportar"
@@ -47,6 +57,7 @@
     <p-table
       #dt
       [value]="(empleados$ | async) ?? []"
+      [columns]="cols"
       [paginator]="true"
       [rows]="5"
       [showCurrentPageReport]="true"

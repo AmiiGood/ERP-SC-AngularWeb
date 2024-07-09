@@ -20,3 +20,9 @@
 .search-box {
   margin-left: auto;
 }
+
+
+/*Estilos para componentes de PrimeNG*/
+:host ::ng-deep .p-toast {
+  margin: 78px 0;
+}
